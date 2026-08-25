@@ -1,0 +1,6 @@
+fastapi[all] 
+ pydantic 
+ python-multipart 
+ openai 
+ google-genai 
+ uvicorn
