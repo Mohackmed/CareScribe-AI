@@ -4,7 +4,8 @@ export default function Layout() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Basic mock logout
+    // Clear session and enforce login next time
+    sessionStorage.removeItem('carescribe_token');
     navigate('/login');
   };
 

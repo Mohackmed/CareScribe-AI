@@ -6,6 +6,21 @@ export default function ReviewConsultation() {
   const [pulse, setPulse] = useState('78');
 
   const handleSave = () => {
+    const stored = localStorage.getItem('carescribe_consultations');
+    let consultations = stored ? JSON.parse(stored) : [];
+    
+    // Add new pending review
+    const newConsultation = {
+      id: `CON-${Math.floor(Math.random() * 9000) + 1000}`,
+      patientName: 'Ravi Kumar', // For demo
+      date: 'Today, Just Now',
+      status: 'PENDING_REVIEW',
+      type: 'Voice AI'
+    };
+    
+    consultations = [newConsultation, ...consultations];
+    localStorage.setItem('carescribe_consultations', JSON.stringify(consultations));
+
     alert("Draft saved and submitted for review!");
     navigate('/dashboard');
   };
